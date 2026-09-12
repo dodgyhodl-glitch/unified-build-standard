@@ -131,6 +131,29 @@ $unified-build-standard          # Codex CLI
 4. Run `python3 scripts/package_skill.py --check` to confirm a clean tree.
 5. Commit and push. Symlinked local installations update on `git pull`; account-level uploads need the new ZIP re-uploaded.
 
+## Keeping a local copy in sync
+
+GitHub is the source of truth. A local clone is a disposable cache of it — on any
+machine, one command gives you everything:
+
+```bash
+git clone https://github.com/learndca/unified-build-standard.git ~/unified-build-standard
+```
+
+To keep that clone current automatically, schedule a fast-forward pull. The repository
+is public, so fetching needs no credentials:
+
+```bash
+cd ~/unified-build-standard && git pull --ff-only
+```
+
+Run it on a schedule with `launchd` (macOS), `cron` or Task Scheduler (Windows). Two
+rules matter in any such job: abort if there are uncommitted local changes, and use
+`--ff-only` so a diverged branch stops the sync instead of being overwritten.
+
+If the skill is installed by symlink, a successful pull updates every local
+installation at once — nothing else to run.
+
 ## Repository layout
 
 ```
