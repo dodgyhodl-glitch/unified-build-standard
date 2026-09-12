@@ -154,6 +154,11 @@ rules matter in any such job: abort if there are uncommitted local changes, and 
 If the skill is installed by symlink, a successful pull updates every local
 installation at once — nothing else to run.
 
+## Licence
+
+MIT — see [LICENSE](LICENSE). Use it, adapt it, build on it, commercially or
+otherwise; keep the copyright notice attached.
+
 ## Repository layout
 
 ```

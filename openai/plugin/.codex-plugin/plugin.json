@@ -9,6 +9,7 @@
   },
   "homepage": "https://github.com/learndca/unified-build-standard",
   "repository": "https://github.com/learndca/unified-build-standard",
+  "license": "MIT",
   "keywords": [
     "planning",
     "execution",
