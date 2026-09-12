@@ -1,0 +1,41 @@
+{
+  "name": "unified-build-standard",
+  "version": "2.0.0",
+  "description": "Apply the Unified Build Standard to plan, execute, verify, resume, and complete technical work.",
+  "author": {
+    "name": "learndca",
+    "email": "learndca@users.noreply.github.com",
+    "url": "https://github.com/learndca"
+  },
+  "homepage": "https://github.com/learndca/unified-build-standard",
+  "repository": "https://github.com/learndca/unified-build-standard",
+  "keywords": [
+    "planning",
+    "execution",
+    "engineering-standard",
+    "workflow",
+    "verification",
+    "code-review",
+    "migration",
+    "automation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Unified Build Standard",
+    "shortDescription": "Plan intelligently, execute economically, verify objectively",
+    "longDescription": "Applies the Unified Build Standard: right-size the process to the work, plan as one master table with stable step IDs and explicit executor tiers, stop at the phase gate until execution is authorised, verify with the cheapest reliable evidence, and keep durable plan and progress records so any session can resume.",
+    "developerName": "learndca",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/learndca/unified-build-standard",
+    "defaultPrompt": [
+      "Use the Unified Build Standard to plan this project.",
+      "Planning only. Stop at the phase gate.",
+      "Use the Unified Build Standard. Execution is authorised."
+    ],
+    "brandColor": "#1F6FEB",
+    "screenshots": []
+  }
+}
