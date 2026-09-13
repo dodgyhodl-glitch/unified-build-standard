@@ -21,6 +21,14 @@ goes backwards breaks update detection for anyone who installed the plugin.
 
 ---
 
+## Unreleased
+
+Standard version: 2.0 · Plugin version: 2.0.1 (unchanged — nothing shipped in the
+plugin changed)
+
+- Ship the sync tooling the README previously only described: `install/` now
+  carries the sync script and a systemd user timer, with its own documentation.
+
 ## Plugin 2.0.1 — 2026-09-13
 
 Standard version: 2.0 (text unchanged)

@@ -163,18 +163,33 @@ machine, one command gives you everything:
 git clone https://github.com/dodgyhodl-glitch/unified-build-standard.git ~/unified-build-standard
 ```
 
-To keep that clone current automatically, schedule a fast-forward pull. The repository
-is public, so fetching needs no credentials:
+To keep that clone current by hand, fast-forward it. The repository is public, so
+fetching needs no credentials:
 
 ```bash
 cd ~/unified-build-standard && git pull --ff-only
 ```
 
-Run it on a schedule with `launchd` (macOS), `cron` or Task Scheduler (Windows). Two
-rules matter in any such job: abort if there are uncommitted local changes, and use
-`--ff-only` so a diverged branch stops the sync instead of being overwritten.
+To keep it current automatically, [`install/`](install/) ships a sync script and a
+systemd user timer that runs every 12 hours and shortly after boot:
 
-If the skill is installed by symlink, a successful pull updates every local
+```bash
+install -Dm755 -t ~/.local/bin/           install/unified-build-standard-sync.sh
+install -Dm644 -t ~/.config/systemd/user/ install/systemd/unified-build-standard-sync.service
+install -Dm644 -t ~/.config/systemd/user/ install/systemd/unified-build-standard-sync.timer
+systemctl --user daemon-reload
+systemctl --user enable --now unified-build-standard-sync.timer
+```
+
+The script never destroys local work: it aborts on uncommitted changes to tracked
+files, fast-forwards only so a diverged branch stops the sync rather than being
+overwritten, and never asks for credentials. It logs to
+`~/.local/state/unified-build-standard/sync.log`, capped so it cannot grow without
+bound. See [install/README.md](install/README.md) for the rules, configuration and
+other schedulers — the script itself is portable, and only the timer is
+Linux-specific.
+
+If the skill is installed by symlink, a successful sync updates every local
 installation at once — nothing else to run.
 
 ## Licence
@@ -194,5 +209,6 @@ unified-build-standard/
 │   ├── README.md
 │   └── plugin/                    # Codex personal plugin
 ├── scripts/package_skill.py       # sync + validate + build
+├── install/                       # sync script + systemd user timer
 └── dist/                          # generated ZIPs
 ```

@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync the Unified Build Standard clone from GitHub
+Documentation=https://github.com/dodgyhodl-glitch/unified-build-standard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/unified-build-standard-sync.sh
+# The script fast-forwards only and aborts on local changes; a non-zero exit
+# is an intentional refusal, not a crash, so do not restart or alarm.
+SuccessExitStatus=1
+TimeoutStartSec=180
