@@ -8,8 +8,8 @@ It exists to resolve difficult reasoning at the right time, minimise rediscovery
 
 ## Read the standard
 
-- **Rendered:** [BUILD_STANDARD.md](https://github.com/learndca/unified-build-standard/blob/main/BUILD_STANDARD.md)
-- **Raw Markdown:** [raw.githubusercontent.com/…/BUILD_STANDARD.md](https://raw.githubusercontent.com/learndca/unified-build-standard/main/BUILD_STANDARD.md)
+- **Rendered:** [BUILD_STANDARD.md](https://github.com/dodgyhodl-glitch/unified-build-standard/blob/main/BUILD_STANDARD.md)
+- **Raw Markdown:** [raw.githubusercontent.com/…/BUILD_STANDARD.md](https://raw.githubusercontent.com/dodgyhodl-glitch/unified-build-standard/main/BUILD_STANDARD.md)
 
 The raw link is the one to paste into a system prompt, a project instruction file, or any agent that can fetch a URL.
 
@@ -62,7 +62,7 @@ Point any agent at the raw URL, or add a line to `AGENTS.md` / `CLAUDE.md`:
 
 ```markdown
 Follow the Unified Build Standard:
-https://raw.githubusercontent.com/learndca/unified-build-standard/main/BUILD_STANDARD.md
+https://raw.githubusercontent.com/dodgyhodl-glitch/unified-build-standard/main/BUILD_STANDARD.md
 ```
 
 Or drop `BUILD_STANDARD.md` at a project root and reference it from the project's instruction file. It also works unmodified as a system prompt.
@@ -137,7 +137,7 @@ GitHub is the source of truth. A local clone is a disposable cache of it — on 
 machine, one command gives you everything:
 
 ```bash
-git clone https://github.com/learndca/unified-build-standard.git ~/unified-build-standard
+git clone https://github.com/dodgyhodl-glitch/unified-build-standard.git ~/unified-build-standard
 ```
 
 To keep that clone current automatically, schedule a fast-forward pull. The repository

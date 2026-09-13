@@ -3,12 +3,12 @@
   "version": "2.0.0",
   "description": "Apply the Unified Build Standard to plan, execute, verify, resume, and complete technical work.",
   "author": {
-    "name": "learndca",
-    "email": "learndca@users.noreply.github.com",
-    "url": "https://github.com/learndca"
+    "name": "dodgyhodl-glitch",
+    "email": "dodgyhodl-glitch@users.noreply.github.com",
+    "url": "https://github.com/dodgyhodl-glitch"
   },
-  "homepage": "https://github.com/learndca/unified-build-standard",
-  "repository": "https://github.com/learndca/unified-build-standard",
+  "homepage": "https://github.com/dodgyhodl-glitch/unified-build-standard",
+  "repository": "https://github.com/dodgyhodl-glitch/unified-build-standard",
   "license": "MIT",
   "keywords": [
     "planning",
@@ -25,12 +25,12 @@
     "displayName": "Unified Build Standard",
     "shortDescription": "Plan intelligently, execute economically, verify objectively",
     "longDescription": "Applies the Unified Build Standard: right-size the process to the work, plan as one master table with stable step IDs and explicit executor tiers, stop at the phase gate until execution is authorised, verify with the cheapest reliable evidence, and keep durable plan and progress records so any session can resume.",
-    "developerName": "learndca",
+    "developerName": "dodgyhodl-glitch",
     "category": "Developer Tools",
     "capabilities": [
       "Interactive"
     ],
-    "websiteURL": "https://github.com/learndca/unified-build-standard",
+    "websiteURL": "https://github.com/dodgyhodl-glitch/unified-build-standard",
     "defaultPrompt": [
       "Use the Unified Build Standard to plan this project.",
       "Planning only. Stop at the phase gate.",
