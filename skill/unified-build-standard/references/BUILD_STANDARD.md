@@ -1,6 +1,7 @@
 # Unified Build Standard
 
-**Version 2.0 — September 2026**
+**Version 2.0 — September 2026**  
+Maintained independently at <https://github.com/dodgyhodl-glitch/unified-build-standard>. Version numbers on this line are assigned independently.
 
 Place this file at the project root as `BUILD_STANDARD.md` and reference it from `AGENTS.md`, `CLAUDE.md`, or the platform-equivalent instruction file. It may also be used directly as a project or system prompt.
 

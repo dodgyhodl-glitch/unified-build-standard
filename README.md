@@ -123,13 +123,36 @@ $unified-build-standard          # Codex CLI
 @unified-build-standard          # ChatGPT
 ```
 
+## Versioning
+
+This repository is an **independent line**. It has no upstream remote, nothing is
+merged in from elsewhere, and its version numbers are assigned here alone — they
+are not comparable with any other repository's. The tag `baseline-2.0` marks the
+last commit of shared history; everything after it belongs to this line.
+
+Two surfaces are versioned separately, because they change for different reasons:
+
+| Surface | Where | Changes when |
+| --- | --- | --- |
+| **Standard version** | the `BUILD_STANDARD.md` heading | the standard's text changes |
+| **Plugin version** | `openai/plugin/.codex-plugin/plugin.json` | anything shipped in the plugin changes |
+
+A rebrand or a packaging fix moves the plugin version without touching the
+standard version. Plugin versions follow strict semver and only ever move
+**forward** — a version that goes backwards breaks update detection for anyone
+who already installed the plugin.
+
+See [CHANGELOG.md](CHANGELOG.md) for the history of this line.
+
 ## Updating and repackaging
 
 1. Edit `BUILD_STANDARD.md` at the repository root.
-2. If the plugin is being redistributed, bump `version` in `openai/plugin/.codex-plugin/plugin.json` using strict semver.
-3. Run `python3 scripts/package_skill.py`.
-4. Run `python3 scripts/package_skill.py --check` to confirm a clean tree.
-5. Commit and push. Symlinked local installations update on `git pull`; account-level uploads need the new ZIP re-uploaded.
+2. Bump the standard version in its heading if the text changed.
+3. If the plugin is being redistributed, bump `version` in `openai/plugin/.codex-plugin/plugin.json` using strict semver.
+4. Add an entry to [CHANGELOG.md](CHANGELOG.md).
+5. Run `python3 scripts/package_skill.py`.
+6. Run `python3 scripts/package_skill.py --check` to confirm a clean tree.
+7. Commit and push. Symlinked local installations update on `git pull`; account-level uploads need the new ZIP re-uploaded.
 
 ## Keeping a local copy in sync
 
