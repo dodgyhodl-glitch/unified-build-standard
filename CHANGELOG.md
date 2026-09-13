@@ -28,6 +28,8 @@ plugin changed)
 
 - Ship the sync tooling the README previously only described: `install/` now
   carries the sync script and a systemd user timer, with its own documentation.
+- Document the self-updating symlink install, including the dangling-symlink
+  failure mode it introduces and how to recover from it.
 
 ## Plugin 2.0.1 — 2026-09-13
 

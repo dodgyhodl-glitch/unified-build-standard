@@ -51,6 +51,39 @@ systemctl --user list-timers unified-build-standard-sync.timer
 
 The units reference `%h`, so they need no editing for a different username.
 
+### Self-updating install
+
+Copying the script means a later fix to it never reaches the machine — you would
+re-run the install command by hand. Symlinking it instead lets the scheduled pull
+update the sync tooling itself, the same way it already updates the skill:
+
+```bash
+ln -sfn ~/unified-build-standard/install/unified-build-standard-sync.sh \
+        ~/.local/bin/unified-build-standard-sync.sh
+```
+
+This is safe to do while the timer is live. A fast-forward that rewrites the
+script does not disturb a run already in progress: git replaces the file rather
+than editing it in place, so the running shell keeps reading the copy it started
+with, and the new version takes effect on the next run.
+
+The trade-off is that `~/.local/bin` now depends on the clone. **If the clone is
+moved or deleted, or a future commit relocates the script, the symlink dangles
+and the timer fails with exit 127** — silently, since nothing is written to the
+log when the script cannot start. Check for it with:
+
+```bash
+test -e ~/.local/bin/unified-build-standard-sync.sh && echo ok || echo "dangling symlink"
+```
+
+Recovery is either restoring the clone, or falling back to a copy:
+
+```bash
+install -Dm755 -t ~/.local/bin/ ~/unified-build-standard/install/unified-build-standard-sync.sh
+```
+
+The units need no change either way — they invoke the path, not the file.
+
 ## Logs
 
 `~/.local/state/unified-build-standard/sync.log`, rotated at 256 KiB and capped
